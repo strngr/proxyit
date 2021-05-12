@@ -3,8 +3,9 @@
 
 CONTAINER=
 PROXY=
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )/../"
-PROFILES_ROOT=$SCRIPT_DIR/.data
+SCRIPTS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+ROOT_DIR=$SCRIPTS_DIR/..
+PROFILES_DIR=$ROOT_DIR/.data
 
 main() {
     echo "Введите имя контейнера"
@@ -26,17 +27,17 @@ main() {
 }
 
 doit() {
-    mkdir -p $PROFILES_ROOT
-    echo $CONTAINER $PROXY >> $SCRIPT_DIR/proxies.txt
-    cat > $SCRIPT_DIR/$CONTAINER.desktop <<EOF
+    mkdir -p $PROFILES_DIR
+    echo $CONTAINER $PROXY >> $ROOT_DIR/proxies.txt
+    cat > $ROOT_DIR/$CONTAINER.desktop <<EOF
 [Desktop Entry]
 Name=Run $CONTAINER
 Icon=network-wired
-Exec=$SCRIPT_DIR/.scripts/run.sh $CONTAINER
+Exec=$ROOT_DIR/.scripts/run.sh $CONTAINER
 Type=Application
 Terminal=false
 EOF
-    chmod +x $SCRIPT_DIR/$CONTAINER.desktop
+    chmod +x $ROOT_DIR/$CONTAINER.desktop
 }
 
 while true; do

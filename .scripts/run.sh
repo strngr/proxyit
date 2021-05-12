@@ -1,8 +1,9 @@
 #!/bin/bash
 
 CONTAINER=$1
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )/../"
-PROFILES_ROOT=$SCRIPT_DIR/.data
+SCRIPTS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+ROOT_DIR=$SCRIPTS_DIR/..
+PROFILES_DIR=$ROOT_DIR/.data
 
 usage() {
     echo "$0 <container name>"
@@ -14,9 +15,9 @@ if [ "x$CONTAINER" == "x" ] || [ "$CONTAINER" == "help" ]; then
     exit 1
 fi
 
-mkdir -p $PROFILES_ROOT/$CONTAINER
+mkdir -p $PROFILES_DIR/$CONTAINER
 
-PROXY=`grep -rP "^$CONTAINER\s" $SCRIPT_DIR/proxies.txt | awk '{ print $2 }' | head -1`
+PROXY=`grep -rP "^$CONTAINER\s" $ROOT_DIR/proxies.txt | awk '{ print $2 }' | head -1`
 PROXY=${PROXY:-direct://}
 
 echo CONTAINER=$CONTAINER
@@ -25,7 +26,9 @@ echo PROXY=$PROXY
 docker run \
     --rm \
     -h $CONTAINER \
-    -v $PROFILES_ROOT/$CONTAINER:/home/user \
+    -w /home/user/ \
+    -v $PROFILES_DIR/$CONTAINER:/home/user \
+    -v $ROOT_DIR/Downloads:/home/user/Downloads \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -u `id -u` \
     --cap-add SYS_ADMIN \
