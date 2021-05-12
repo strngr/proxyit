@@ -7,7 +7,7 @@
 А, да. Для работы нужен линукс с GUI.
 
 # Установка.
-- Скачиваем самый свежий релиз [отсюда](/strngr/proxyit/releases), ну или клонируем репозиторий, если так привычней: `git clone https://github.com/strngr/proxyit`.
+- Скачиваем самый свежий релиз [отсюда](../../releases/latest), ну или клонируем репозиторий, если так привычней: `git clone https://github.com/strngr/proxyit`.
 - Открываем директорию в графическом файловом менеджере.
 - Кликаем по `create.desktop`.
   ![](docs/create.png)
