@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Create new machine
+Icon=document-new
+Exec=bash -c 'exec $(dirname %k)/.scripts/create.sh'
+Type=Application
+Terminal=true
