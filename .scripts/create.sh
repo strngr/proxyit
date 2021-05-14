@@ -33,7 +33,7 @@ doit() {
 [Desktop Entry]
 Name=Run $CONTAINER
 Icon=network-wired
-Exec=$ROOT_DIR/.scripts/run.sh $CONTAINER
+Exec=$SCRIPTS_DIR/run.sh $CONTAINER
 Type=Application
 Terminal=false
 EOF
