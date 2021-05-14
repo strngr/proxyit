@@ -10,20 +10,20 @@
 - Скачиваем самый свежий релиз [отсюда](/strngr/proxyit/releases), ну или клонируем репозиторий, если так привычней: `git clone https://github.com/strngr/proxyit`.
 - Открываем директорию в графическом файловом менеджере.
 - Кликаем по `create.desktop`.
-  ![](docs/create.png)
+  ![](.docs/create.png)
 - Вводим то что скрипт просит:
  - Имя машины.
  - Прокси.
 
 Проверяем все ли правильно. Если все ок - пишем `yes`.
-  ![](docs/create.script.png)
+  ![](.docs/create.script.png)
 - Скрипт создаст ярлычок с именем машины.
-  ![](docs/machine.created.png)
+  ![](.docs/machine.created.png)
 - Связь "имя машины - прокси" будет внесена в файлик `proxies.txt`.
 В случае если прокся сдохла - в файлике `proxies.txt` ее можно поменять либо убрать вовсе.
-  ![](docs/proxies.png)
+  ![](.docs/proxies.png)
 - При клике по ярлычку - открывается соответствующая машина.
-  ![](docs/machine.running.png)
+  ![](.docs/machine.running.png)
 
 
 Для того чтобы сохранить файлы с машины или загрузить их туда, в корне проекта есть директория `Downloads/`.
